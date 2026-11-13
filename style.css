@@ -1,0 +1,52 @@
+:root{--bg:#f8faf9;--ink:#1c2a28;--muted:#6b7776;--teal:#3f8f8b;--track:#e0e6e4;--card:#e0e8e6;--skin:#d9b9a0}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;display:grid;place-items:center;background:#333;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink)}
+.phone{width:100%;max-width:392px;min-height:100vh;background:var(--bg);position:relative;overflow:hidden}
+@media(min-width:600px){.phone{min-height:0;height:800px;border-radius:48px;border:10px solid #2b2733;box-shadow:0 20px 60px #0008}}
+.screen{position:absolute;inset:0;display:none;flex-direction:column;align-items:center;padding:56px 24px 24px;text-align:center}
+.screen.active{display:flex}
+.time{font-size:72px;font-weight:300;letter-spacing:-3px;line-height:1}
+.time small{font-size:26px;letter-spacing:0;margin-left:4px}
+.label{margin:14px 0 22px;font-weight:600;font-size:18px;color:var(--muted)}
+.speaker{width:44px;height:44px;color:var(--teal);margin-bottom:22px}
+.cap{font-size:11px;font-weight:700;letter-spacing:.18em;color:var(--muted)}
+.segs{display:flex;gap:14px;margin:14px 0 26px;width:100%;max-width:340px}
+.seg{flex:1;height:8px;border-radius:4px;background:var(--track);transition:background .3s,box-shadow .3s}
+.seg.on{background:var(--teal)}
+.seg.cur{box-shadow:0 0 0 4px #3f8f8b26}
+.card{position:relative;width:100%;max-width:340px;aspect-ratio:1;border-radius:36px;background:var(--card);border:1px solid #d3dedb}
+.view{position:absolute;inset:0;border-radius:36px;overflow:hidden}
+.view video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scaleX(-1);opacity:.55}
+.cam{position:absolute;top:18px;left:0;right:0;font-size:11px;font-weight:700;letter-spacing:.18em;color:#46605d;z-index:2}
+.cam::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--teal);margin-right:7px;vertical-align:middle}
+.name{position:absolute;bottom:22px;left:0;right:0;font-size:18px;font-weight:700;z-index:2}
+.hand{position:absolute;inset:12% 18% 14%;z-index:1}
+.hand svg{width:100%;height:100%;overflow:visible}
+.outline{stroke:#46605d;stroke-width:4;stroke-dasharray:5 5;fill:none;filter:drop-shadow(0 0 2px #fff)}
+.fill{fill:var(--skin);opacity:0;transition:opacity .2s}
+.hit .fill{opacity:.8}
+.detail{fill:none;stroke:#46605d;stroke-width:2.4;stroke-dasharray:4 4;stroke-linecap:round;filter:drop-shadow(0 0 2px #fff)}
+.hit .outline{stroke-dasharray:none;stroke:#2b3a38}
+.hit .detail{stroke-dasharray:none;stroke:#2b3a38}
+.ring{position:absolute;inset:-1px;width:calc(100% + 2px);height:calc(100% + 2px);z-index:3;pointer-events:none;overflow:visible}
+.ring circle{fill:none;stroke:var(--teal);stroke-width:1.4;stroke-linecap:round;transform:rotate(-90deg);transform-origin:50% 50%;stroke-dasharray:100;stroke-dashoffset:100}
+.status{margin-top:26px;font-size:19px;font-weight:600;color:var(--muted);display:flex;align-items:center;gap:10px}
+.status i{width:10px;height:10px;border-radius:50%;background:#c3dcda;display:none}
+.status.go i{display:block}
+button{padding:15px 28px;border:0;border-radius:16px;background:var(--teal);color:#fff;font:600 17px inherit;font-family:inherit;cursor:pointer}
+button:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.center{justify-content:center;gap:18px}
+.center h1{margin:0;font-size:28px}
+.center p{margin:0;color:var(--muted);max-width:260px}
+.done{justify-content:flex-start;padding-top:40px}
+.done .sun{width:130px;height:60px}
+.done .good{color:var(--teal);margin:22px 0 14px}
+.done .time{margin-bottom:38px}
+.check{width:98px;height:98px;border-radius:50%;background:#4a9460;display:grid;place-items:center;box-shadow:0 10px 24px #4a946040}
+.done h1{margin:26px 0 14px;font-size:34px;font-weight:800;letter-spacing:-.5px}
+.done p{margin:0 0 42px;color:var(--muted);line-height:1.55;font-size:17px}
+.link{background:none;color:var(--teal);padding:6px 8px;font-size:17px;font-weight:700;border-radius:10px}
+.link span{color:var(--muted);font-weight:400}
+.bottom{position:absolute;left:0;right:0;bottom:0;padding:16px 22px 24px;border-top:1px solid #e6ecea;background:var(--bg)}
+.bottom button{width:100%;border-radius:18px;padding:18px;font-size:18px}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}

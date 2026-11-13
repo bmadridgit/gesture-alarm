@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gesture Alarm</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="phone">
+
+  <section id="s-start" class="screen center active">
+    <div class="time">7:00<small>AM</small></div>
+    <p>Lecture Class. Allow camera access, then dismiss the alarm with three gestures.</p>
+    <button id="start">Start alarm demo</button>
+    <p id="loading" aria-live="polite"></p>
+  </section>
+
+  <section id="s-ring" class="screen">
+    <div class="time">7:00<small>AM</small></div>
+    <div class="label">Lecture Class</div>
+    <svg class="speaker" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 9v6h4l5 4V5L7 9H3z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+    <div class="cap">SHOW THIS GESTURE</div>
+    <div class="segs" id="segs"><div class="seg"></div><div class="seg"></div><div class="seg"></div></div>
+    <div class="card" id="card">
+      <div class="view"><video id="video" autoplay playsinline muted></video></div>
+      <div class="cam">FRONT CAMERA</div>
+      <div class="hand" id="hand"></div>
+      <div class="name" id="name"></div>
+      <svg class="ring" viewBox="0 0 100 100"><circle id="ringc" cx="50" cy="50" r="49.3" pathLength="100"/></svg>
+    </div>
+    <div class="status" id="status" aria-live="polite"><i></i><span>Looking for hand…</span></div>
+  </section>
+
+  <section id="s-done" class="screen done">
+    <svg class="sun" viewBox="0 0 130 60" fill="none" stroke="#3f8f8b" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M27 54a38 38 0 0 1 76 0M10 54h110M20 14l10 6M110 14l-10 6"/></svg>
+    <div class="cap good">GOOD MORNING</div>
+    <div class="time">7:00<small>AM</small></div>
+    <div class="check"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 12.5l4 4 7-8"/></svg></div>
+    <h1>Alarm off</h1>
+    <p>You completed your wake-up gesture.<br>Have a great day.</p>
+    <button id="snooze" class="link">Snooze 5 min <span>(requires gesture)</span></button>
+    <div class="bottom"><button id="done">Done</button></div>
+  </section>
+</main>
+
+<script type="module" src="script.js"></script>
+</body>
+</html>
